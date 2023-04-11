@@ -8,16 +8,16 @@
 public class MineCreator {
 	public static void main(String[] args) {
 		// How many bombs will be put into the grid
-		int bombs = 10;
+		short bombs = 10;
 		
 		// How wide and tall the board is
 		// If this was a method, it would take variables from the method call
-		int boardy = 10;
-		int boardx = 10;
+		byte boardy = 10;
+		byte boardx = 10;
 		// The board of the game
 		// -1 indicates, the tile has not been set
 		// 0 indicates no bombs are on the tile
-		// 1-8 indicates how many bombs are aroundd the tile
+		// 1-8 indicates how many bombs are around the tile
 		// 10 indicates the position of a bomb
 		byte [][]board = new byte[boardy][boardx];
 		for (byte i = 0; i != boardy; i++) {
@@ -27,9 +27,9 @@ public class MineCreator {
 		}
 		
 		// Generates Bomb locations, making sure not to overlap bombs
-		for (int i = 0; i != bombs; i++) {
-			int x = (int)(Math.random() * boardx);
-			int y = (int)(Math.random() * boardy);
+		for (short i = 0; i != bombs; i++) {
+			int x = (byte)(Math.random() * boardx);
+			int y = (byte)(Math.random() * boardy);
 			if (board[y][x] == 10) {
 				i--;
 			} else {
@@ -47,27 +47,16 @@ public class MineCreator {
 		
 		for (int i = 0; i != boardy; i++) {
 			// If on the first row, there is no row above
-			if (i == 0)
-				ceiling = true;
-			else
-				ceiling = false;
+			ceiling = (i == 0);
 			// If on the last row, there is no row below
-			if (i == boardy - 1)
-				floor = true;
-			else
-				floor = false;
+			floor = (i == boardy - 1);
 			
 			for (int j = 0; j != boardx; j++) {
 				// If on the first value of a row, there is no column left
-				if (j == 0)
-					leftwall = true;
-				else
-					leftwall = false;
+				leftwall = (j == 0);
 				// If on the last value of a row, there is no column right
-				if (j == boardx -1)
-					rightwall = true;
-				else
-					rightwall = false;
+				rightwall = (j == boardx -1);
+
 				bombtotal = 0;
 				if (board[i][j] != 10){
 					if (ceiling == false) {
@@ -110,6 +99,7 @@ public class MineCreator {
 			}
 		}
 		
+		// Could probably instead just move this switch statement up to 97
 		for (int i = 0; i != 10; i++) {
 			for (int j = 0; j != 10; j++) {
 				switch (board[i][j]) {
