@@ -94,45 +94,38 @@ public class MineCreator {
 							if (board[i+1][j+1] == 10)
 								bombtotal++;
 					}
-					board[i][j] = bombtotal;
 				}
-			}
-		}
-		
-		// Could probably instead just move this switch statement up to 97
-		for (int i = 0; i != 10; i++) {
-			for (int j = 0; j != 10; j++) {
-				switch (board[i][j]) {
-				case 0:
-					System.out.print("||:white_large_square:|| ");
-					break;
-				case 1:
-					System.out.print("||:one:|| ");
-					break;
-				case 2:
-					System.out.print("||:two:|| ");
-					break;
-				case 3:
-					System.out.print("||:three:|| ");
-					break;
-				case 4:
-					System.out.print("||:four:|| ");
-					break;
-				case 5:
-					System.out.print("||:five:|| ");
-					break;
-				case 6:
-					System.out.print("||:six:|| ");
-					break;
-				case 7:
-					System.out.print("||:seven:|| ");
-					break;
-				case 8:
-					System.out.print("||:eight:|| ");
-					break;
-				case 10:
-					System.out.print("||:bomb:|| ");
-					break;
+				switch (bombtotal) {
+					case 0:
+						System.out.print("||:white_large_square:|| ");
+						break;
+					case 1:
+						System.out.print("||:one:|| ");
+						break;
+					case 2:
+						System.out.print("||:two:|| ");
+						break;
+					case 3:
+						System.out.print("||:three:|| ");
+						break;
+					case 4:
+						System.out.print("||:four:|| ");
+						break;
+					case 5:
+						System.out.print("||:five:|| ");
+						break;
+					case 6:
+						System.out.print("||:six:|| ");
+						break;
+					case 7:
+						System.out.print("||:seven:|| ");
+						break;
+					case 8:
+						System.out.print("||:eight:|| ");
+						break;
+					case 10:
+						System.out.print("||:bomb:|| ");
+						break;
 				}
 			}
 			System.out.println();
